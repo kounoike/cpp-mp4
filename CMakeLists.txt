@@ -17,28 +17,28 @@ set_cache_string_from_env(FMT_VERSION 8.0.1 "fmt のバージョン")
 set_cache_string_from_env(RAPIDCSV_VERSION 8.53 "rapidcsv のバージョン")
 set_cache_string_from_env(SPDLOG_VERSION 1.9.2 "spdlog のバージョン")
 
-add_compile_options(
-    -Wall
-    -Wextra
-    -Wshadow
-    -Wnon-virtual-dtor
-    -Wold-style-cast
-    -Wcast-align
-    -Wunused
-    -Woverloaded-virtual
-    -Wpedantic
-    -Wconversion
-    -Wsign-conversion
-    -Wnull-dereference
-    -Wdouble-promotion
-    -Wformat=2
-    )
+#add_compile_options(
+#    -Wall
+#    -Wextra
+#    -Wshadow
+#    -Wnon-virtual-dtor
+#    -Wold-style-cast
+#    -Wcast-align
+#    -Wunused
+#    -Woverloaded-virtual
+#    -Wpedantic
+#    -Wconversion
+#    -Wsign-conversion
+#    -Wnull-dereference
+#    -Wdouble-promotion
+#    -Wformat=2
+#    )
 
-set(CMAKE_CXX_FLAGS_NATIVE "-O3 -DNDEBUG -march=native -mtune=native")
-set(CMAKE_C_FLAGS_NATIVE "-O3 -DNDEBUG -march=native -mtune=native")
+#set(CMAKE_CXX_FLAGS_NATIVE "-O3 -DNDEBUG -march=native -mtune=native")
+#set(CMAKE_C_FLAGS_NATIVE "-O3 -DNDEBUG -march=native -mtune=native")
 
-set(CMAKE_CXX_FLAGS_PROFILE "-pg -O3 -DNDEBUG -march=native -mtune=native")
-set(CMAKE_C_FLAGS_PROFILE "-pg -O3 -DNDEBUG -march=native -mtune=native")
+#set(CMAKE_CXX_FLAGS_PROFILE "-pg -O3 -DNDEBUG -march=native -mtune=native")
+#set(CMAKE_C_FLAGS_PROFILE "-pg -O3 -DNDEBUG -march=native -mtune=native")
 
 CPMAddPackage(
     NAME boost_assert
