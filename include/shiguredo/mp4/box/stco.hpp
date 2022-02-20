@@ -30,7 +30,7 @@ class Stco : public FullBox {
   std::uint64_t readData(std::istream&) override;
   std::uint64_t getDataSize() const override;
 
-  auto operator<=>(const Stco&) const;
+  std::strong_ordering operator<=>(const Stco&) const;
 
  private:
   std::vector<std::uint32_t> m_chunk_offsets;

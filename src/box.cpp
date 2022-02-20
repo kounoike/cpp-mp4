@@ -176,7 +176,7 @@ std::uint64_t FullBox::getDataSize() const {
   return 4;
 }
 
-auto FullBox::operator<=>(const FullBox& other) const {
+std::strong_ordering FullBox::operator<=>(const FullBox& other) const {
   if (auto cmp = m_version <=> other.m_version; cmp != 0) return cmp;
   if (auto cmp = m_flags[0] <=> other.m_flags[0]; cmp != 0) return cmp;
   if (auto cmp = m_flags[1] <=> other.m_flags[1]; cmp != 0) return cmp;

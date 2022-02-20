@@ -68,7 +68,7 @@ class FullBox : public Box {
   std::uint64_t readVersionAndFlag(bitio::Reader*);
   std::uint64_t getDataSize() const override;
 
-  auto operator<=>(const FullBox&) const;
+  std::strong_ordering operator<=>(const FullBox&) const;
 
  protected:
   std::uint8_t m_version = 0;
