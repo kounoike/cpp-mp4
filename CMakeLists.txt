@@ -278,6 +278,7 @@ set_target_properties(shiguredo-mp4 PROPERTIES CXX_STANDARD 20 C_STANDARD 11)
 
 target_link_libraries(shiguredo-mp4
     PRIVATE
+    fmt::fmt
     spdlog::spdlog
     )
 
