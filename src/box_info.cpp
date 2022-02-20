@@ -1,6 +1,6 @@
 #include "shiguredo/mp4/box_info.hpp"
 
-#include <bits/exception.h>
+// #include <bits/exception.h>
 #include <fmt/core.h>
 #include <fmt/ranges.h>
 #include <spdlog/spdlog.h>

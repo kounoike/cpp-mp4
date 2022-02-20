@@ -1,6 +1,6 @@
 #include "shiguredo/mp4/reader/reader.hpp"
 
-#include <bits/exception.h>
+// #include <bits/exception.h>
 #include <spdlog/spdlog.h>
 
 #include <algorithm>
