@@ -16,7 +16,7 @@ class BoxType {
   void setData(const std::uint8_t, const std::uint8_t, const std::uint8_t, const std::uint8_t);
 
   std::array<std::uint8_t, 4> getData() const;
-  auto operator<=>(const BoxType&) const = default;
+  auto operator<=>(const BoxType&) const;
 
   std::string toString() const;
   bool matchWith(const BoxType& other) const;
