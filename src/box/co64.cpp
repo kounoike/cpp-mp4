@@ -57,7 +57,7 @@ std::uint64_t Co64::getDataSize() const {
   return 8 + std::size(m_chunk_offsets) * 8;
 }
 
-std::strong_ordering Co64::operator<=>(const Stco& other) const {
+std::strong_ordering Co64::operator<=>(const Co64& other) const {
   if (auto cmp = ((FullBox *)this)->operator<=>(other); cmp != 0) return cmp;
   if (auto cmp = m_chunk_offsets.size() <=> other.m_chunk_offsets.size(); cmp != 0) return cmp;
   for (int idx = 0; idx < m_chunk_offsets.size(); idx++) {
