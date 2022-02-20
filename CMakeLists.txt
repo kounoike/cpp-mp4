@@ -7,6 +7,7 @@ cmake_policy(SET CMP0091 NEW)
 
 # set(CMAKE_C_COMPILER clang)
 # set(CMAKE_CXX_COMPILER clang++)
+set(CMAKE_CXX_STANDARD 20)
 
 include(cmake/env.cmake)
 include(cmake/tools.cmake)
