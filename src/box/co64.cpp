@@ -57,6 +57,10 @@ std::uint64_t Co64::getDataSize() const {
   return 8 + std::size(m_chunk_offsets) * 8;
 }
 
+auto Co64::operator<=>(const Co64& other) const {
+  return m_chunk_offsets <=> other.m_chunk_offsets;
+}
+
 std::ostream& operator<<(std::ostream& os, const Co64& co64) {
   os << co64.toString();
   return os;

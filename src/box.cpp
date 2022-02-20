@@ -29,6 +29,11 @@ Box::~Box() {
   }
 }
 
+std::strong_ordering Box::operator<=>(const Box& other) const {
+  if (auto cmp = m_type <=> other.m_type; cmp != 0) return cmp;
+  return m_header <=> other.m_header;
+}
+
 std::uint8_t Box::getVersion() const {
   return 0;
 }
@@ -171,12 +176,23 @@ std::uint64_t FullBox::getDataSize() const {
   return 4;
 }
 
+auto FullBox::operator<=>(const FullBox& other) const {
+  if (auto cmp = m_version <=> other.m_version; cmp != 0) return cmp;
+  if (auto cmp = m_flags[0] <=> other.m_flags[0]; cmp != 0) return cmp;
+  if (auto cmp = m_flags[1] <=> other.m_flags[1]; cmp != 0) return cmp;
+  return m_flags[2] <=> other.m_flags[2];
+}
+
 void AnyTypeBox::setType(const BoxType& type) {
   m_type = type;
 }
 
 BoxType AnyTypeBox::getType() const {
   return m_type;
+}
+
+auto AnyTypeBox::operator<=>(const AnyTypeBox& other) const {
+  return getType() <=> other.getType();
 }
 
 }  // namespace shiguredo::mp4

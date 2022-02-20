@@ -28,7 +28,7 @@ class BoxHeader {
   void seekToData(std::istream& is);
   void seekToEnd(std::istream& is);
 
-  auto operator<=>(const BoxHeader&) const = default;
+  std::strong_ordering operator<=>(const BoxHeader&) const;
 
   std::uint64_t getOffset() const;
   std::uint64_t getSize() const;

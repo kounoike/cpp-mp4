@@ -27,13 +27,6 @@ BoxType::BoxType(const std::string& str) {
 
 BoxType::BoxType(const std::array<std::uint8_t, 4>& t_data) : m_data(t_data) {}
 
-auto BoxType::operator<=>(const BoxType& other) const{
-  if (auto cmp = m_data[0] <=> other.m_data[0]; cmp != 0) return cmp;
-  if (auto cmp = m_data[1] <=> other.m_data[1]; cmp != 0) return cmp;
-  if (auto cmp = m_data[2] <=> other.m_data[2]; cmp != 0) return cmp;
-  return m_data[3] <=> other.m_data[3];
-}
-
 void BoxType::setData(const std::uint8_t d0, const std::uint8_t d1, const std::uint8_t d2, const std::uint8_t d3) {
   m_data[0] = d0;
   m_data[1] = d1;
@@ -43,6 +36,13 @@ void BoxType::setData(const std::uint8_t d0, const std::uint8_t d1, const std::u
 
 std::array<std::uint8_t, 4> BoxType::getData() const {
   return m_data;
+}
+
+std::strong_ordering BoxType::operator<=>(const BoxType& other) const{
+  if (auto cmp = m_data[0] <=> other.m_data[0]; cmp != 0) return cmp;
+  if (auto cmp = m_data[1] <=> other.m_data[1]; cmp != 0) return cmp;
+  if (auto cmp = m_data[2] <=> other.m_data[2]; cmp != 0) return cmp;
+  return m_data[3] <=> other.m_data[3];
 }
 
 std::string BoxType::toString() const {

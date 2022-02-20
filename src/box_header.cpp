@@ -149,6 +149,13 @@ void BoxHeader::seekToEnd(std::istream& is) {
   }
 }
 
+std::strong_ordering BoxHeader::operator<=>(const BoxHeader& other) const {
+  if (auto cmp = m_type <=> other.m_type; cmp != 0) return cmp;
+  if (auto cmp = m_header_size <=> other.m_header_size; cmp != 0) return cmp;
+  if (auto cmp = m_size <=> other.m_size; cmp != 0) return cmp;
+  return m_offset <=> other.m_offset;
+}
+
 void BoxHeader::setOffsetAndDataSize(const std::uint64_t t_offset, const std::uint64_t t_data_size) {
   m_offset = t_offset;
   if (t_data_size > (std::numeric_limits<std::uint32_t>::max() - Constants::SMALL_HEADER_SIZE)) {

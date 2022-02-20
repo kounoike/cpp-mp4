@@ -54,6 +54,10 @@ std::uint64_t Stco::getDataSize() const {
   return 8 + std::size(m_chunk_offsets) * 4;
 }
 
+auto Stco::operator<=>(const Stco& other) const {
+  return m_chunk_offsets <=> other.m_chunk_offsets;
+}
+
 std::ostream& operator<<(std::ostream& os, const Stco& stco) {
   os << stco.toString();
   return os;
