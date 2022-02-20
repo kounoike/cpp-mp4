@@ -30,7 +30,7 @@ class Co64 : public FullBox {
   std::uint64_t readData(std::istream& is) override;
   std::uint64_t getDataSize() const override;
 
-  auto operator<=>(const Co64&) const;
+  std::strong_ordering operator<=>(const Co64&) const;
 
  private:
   std::vector<std::uint64_t> m_chunk_offsets;
